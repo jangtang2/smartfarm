@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "831885673443",
+    "firebase_url": "https://esp8266-connect-25816-default-rtdb.firebaseio.com",
+    "project_id": "esp8266-connect-25816",
+    "storage_bucket": "esp8266-connect-25816.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:831885673443:android:31cd7cf6bc1f8a2180d6d6",
+        "android_client_info": {
+          "package_name": "com.example.smartfarm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "831885673443-foie44bn0hdj1u1t13ghdvo3im6t3tm2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8BaIv7Fd6bp8q0mkn7fTxpvqNgkc66yI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "831885673443-foie44bn0hdj1u1t13ghdvo3im6t3tm2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

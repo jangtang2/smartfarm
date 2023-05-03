@@ -45,9 +45,9 @@ class MainActivity : AppCompatActivity() {
                 //text1.text = "$value"
 
                 val cds = snapshot.child("cds").value
-                text1.text = cds.toString()
+                text1.text ="lux = " + cds.toString()+ "lux"
                 val humi = snapshot.child("humi").value
-                text2.text = humi.toString()
+                text2.text ="humi = " + humi.toString() + "%"
                 val temp = snapshot.child("temp").value
                 text3.text ="temp = " + temp.toString()+"'c"
             }

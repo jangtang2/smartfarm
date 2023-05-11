@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_monitor"
+        android:icon="@drawable/baseline_insert_chart_24"
+        android:title="title_monitor" />
+
+    <item
+        android:id="@+id/navigation_control"
+        android:icon="@drawable/baseline_toggle_off_24"
+        android:title="title_control" />
+
+    <item
+        android:id="@+id/navigation_setting"
+        android:icon="@drawable/baseline_settings_24"
+        android:title="title_setting" />
+</menu>

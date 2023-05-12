@@ -20,6 +20,8 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
 
+    var fragment_num = 1
+
     private val frame: RelativeLayout by lazy { // activity_main의 화면 부분
         findViewById(R.id.main_container)
     }
@@ -39,14 +41,17 @@ class MainActivity : AppCompatActivity() {
             when(item.itemId) {
                 R.id.navigation_monitor -> {
                     replaceFragment(MonitorFragment())
+                    fragment_num=1
                     true
                 }
                 R.id.navigation_control -> {
                     replaceFragment(ControlFragment())
+                    fragment_num=2
                     true
                 }
                 R.id.navigation_setting-> {
                     replaceFragment(SettingFragment())
+                    fragment_num=3
                     true
                 }
                 else -> false
@@ -87,8 +92,9 @@ class MainActivity : AppCompatActivity() {
                 val manager : FragmentManager = supportFragmentManager
 
                 val transaction: FragmentTransaction = manager.beginTransaction()
-
-                transaction.replace(R.id.main_container, monitorFragment).commit()
+                if(fragment_num==1) {
+                    transaction.replace(R.id.main_container, monitorFragment).commit()
+                }
             }
 
             override fun onCancelled(error: DatabaseError) {

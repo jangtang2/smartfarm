@@ -70,12 +70,13 @@ class MainActivity : AppCompatActivity() {
         //val myRef : DatabaseReference = database.getReference("message")
 
         val database: FirebaseDatabase = FirebaseDatabase.getInstance()
-        val myRef : DatabaseReference = database.getReference("esp8266")
+        val TH_Ref : DatabaseReference = database.getReference("esp8266")
+        val TH_avg_Ref : DatabaseReference = database.getReference("avg_hour")
 
         //val msgRef: DatabaseReference = database.getReference("message")
 
         //Read from the database
-        myRef.addValueEventListener(object : ValueEventListener {
+        TH_Ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 //값이 변경된게 있으면 database의 값이 갱신되면 자동 호출된다.
 

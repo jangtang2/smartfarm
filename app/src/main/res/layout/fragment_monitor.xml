@@ -33,19 +33,10 @@
                 android:textSize="80px"
                 android:textStyle="bold"
                 />
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                android:src="@drawable/baseline_settings_24"
-                android:background="#00ff0000"
-                android:drawableTint="#F1F3F4"
-                />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/second_h"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="80px"
@@ -97,7 +88,19 @@
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="800px"
+            app:layout_constraintTop_toBottomOf="@id/second_h"
+            tools:ignore="MissingConstraints">
 
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/TH_chart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="50px"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

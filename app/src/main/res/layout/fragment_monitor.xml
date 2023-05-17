@@ -98,7 +98,8 @@
                 android:id="@+id/TH_chart"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="50px"/>
+                android:layout_margin="80px"
+                android:paddingTop="50px"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

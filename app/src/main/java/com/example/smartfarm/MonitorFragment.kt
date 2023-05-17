@@ -74,16 +74,96 @@ class MonitorFragment : Fragment(R.layout.fragment_monitor) {
         text_t.text=message_t
         text_h.text=message_h
 
-        setupLineChartData(view)
+        //temp line chart
+        val at1 : Float? = this.arguments?.getString("atemp1")?.toFloat()
+        val at2 : Float? = this.arguments?.getString("atemp2")?.toFloat()
+        val at3 : Float? = this.arguments?.getString("atemp3")?.toFloat()
+        val at4 : Float? = this.arguments?.getString("atemp4")?.toFloat()
+        val at5 : Float? = this.arguments?.getString("atemp5")?.toFloat()
+        val at6 : Float? = this.arguments?.getString("atemp6")?.toFloat()
+        val at7 : Float? = this.arguments?.getString("atemp7")?.toFloat()
+        val at8 : Float? = this.arguments?.getString("atemp8")?.toFloat()
+        val at9 : Float? = this.arguments?.getString("atemp9")?.toFloat()
+        val at10 : Float? = this.arguments?.getString("atemp10")?.toFloat()
+        val at11 : Float? = this.arguments?.getString("atemp11")?.toFloat()
+        val at12 : Float? = this.arguments?.getString("atemp12")?.toFloat()
+
+        //val atp1: Float? = at1?.toFloat()
+
+        val tmp_Vals = ArrayList<Entry>()
+        if (at1 != null) {
+            tmp_Vals.add(Entry(-24f, at1))
+        }
+        if (at2 != null) {
+            tmp_Vals.add(Entry(-22f, at2))
+        }
+        if (at3 != null) {
+            tmp_Vals.add(Entry(-20f, at3))
+        }
+        if (at4 != null) {
+            tmp_Vals.add(Entry(-18f, at4))
+        }
+        if (at5 != null) {
+            tmp_Vals.add(Entry(-16f, at5))
+        }
+        if (at6 != null) {
+            tmp_Vals.add(Entry(-14f, at6))
+        }
+        if (at7 != null) {
+            tmp_Vals.add(Entry(-12f, at7))
+        }
+        if (at8 != null) {
+            tmp_Vals.add(Entry(-10f, at8))
+        }
+        if (at9 != null) {
+            tmp_Vals.add(Entry(-8f, at9))
+        }
+        if (at10 != null) {
+            tmp_Vals.add(Entry(-6f, at10))
+        }
+        if (at11 != null) {
+            tmp_Vals.add(Entry(-4f, at11))
+        }
+        if (at12 != null) {
+            tmp_Vals.add(Entry(-2f, at12))
+        }
+
+        val set1: LineDataSet
+        set1 = LineDataSet(tmp_Vals, "DataSet 1")
+
+        set1.color = Color.BLUE
+        set1.setCircleColor(Color.BLUE)
+        set1.lineWidth = 1f
+        set1.circleRadius = 3f
+        set1.setDrawCircleHole(false)
+        set1.valueTextSize = 0f
+        set1.setDrawFilled(false)
+
+        val dataSets = ArrayList<ILineDataSet>()
+        dataSets.add(set1)
+        val data = LineData(dataSets)
+
+        var lineChart = view.findViewById<LineChart>(R.id.TH_chart)
+        // set data
+        lineChart.setData(data)
+        lineChart.description.isEnabled = false
+        lineChart.legend.isEnabled = false
+        lineChart.setPinchZoom(true)
+        lineChart.xAxis.enableGridDashedLine(5f, 5f, 0f)
+        lineChart.axisRight.enableGridDashedLine(5f, 5f, 0f)
+        lineChart.axisLeft.enableGridDashedLine(5f, 5f, 0f)
+        lineChart.xAxis.labelCount = 12
+        lineChart.xAxis.position = XAxis.XAxisPosition.BOTTOM
+
+        //setupLineChartData(view)
 
         return view
     }
 
     private fun setupLineChartData(view: View){
 
-        val a1:Int=14
         val yVals = ArrayList<Entry>()
-        yVals.add(Entry(1f, a1*1f, "1"))
+        yVals.add(Entry(1f, 1f, "1"))
         yVals.add(Entry(2f, 2f, "2"))
         yVals.add(Entry(3f, 4f, "3"))
         yVals.add(Entry( 4f, 7f, "4"))

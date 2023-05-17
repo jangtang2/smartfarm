@@ -3,6 +3,7 @@ package com.example.smartfarm
 import android.os.Bundle
 import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -70,7 +71,7 @@ class MainActivity : AppCompatActivity() {
         //val myRef : DatabaseReference = database.getReference("message")
 
         val database: FirebaseDatabase = FirebaseDatabase.getInstance()
-        val TH_Ref : DatabaseReference = database.getReference("esp8266")
+        val TH_Ref : DatabaseReference = database.getReference("")
         val TH_avg_Ref : DatabaseReference = database.getReference("avg_hour")
 
         //val msgRef: DatabaseReference = database.getReference("message")
@@ -81,10 +82,37 @@ class MainActivity : AppCompatActivity() {
                 //값이 변경된게 있으면 database의 값이 갱신되면 자동 호출된다.
 
                 val bundle: Bundle = Bundle()
-                val temp = snapshot.child("temp").value
+                val temp = snapshot.child("/esp8266/temp").value
                 bundle.putString("temp", temp.toString()+"℃")
-                val humi = snapshot.child("humi").value
+                val humi = snapshot.child("/esp8266/humi").value
                 bundle.putString("humi", humi.toString() + "%")
+
+                var atemp1 = snapshot.child("avg_hour/1/avg_t").value.toString()
+                var atemp2 = snapshot.child("avg_hour/2/avg_t").value.toString()
+                var atemp3 = snapshot.child("avg_hour/3/avg_t").value.toString()
+                var atemp4 = snapshot.child("avg_hour/4/avg_t").value.toString()
+                var atemp5 = snapshot.child("avg_hour/5/avg_t").value.toString()
+                var atemp6 = snapshot.child("avg_hour/6/avg_t").value.toString()
+                var atemp7 = snapshot.child("avg_hour/7/avg_t").value.toString()
+                var atemp8 = snapshot.child("avg_hour/8/avg_t").value.toString()
+                var atemp9 = snapshot.child("avg_hour/9/avg_t").value.toString()
+                var atemp10 = snapshot.child("avg_hour/10/avg_t").value.toString()
+                var atemp11 = snapshot.child("avg_hour/11/avg_t").value.toString()
+                var atemp12 = snapshot.child("avg_hour/12/avg_t").value.toString()
+
+                bundle.putString("atemp1", atemp1)
+                bundle.putString("atemp2", atemp2)
+                bundle.putString("atemp3", atemp3)
+                bundle.putString("atemp4", atemp4)
+                bundle.putString("atemp5", atemp5)
+                bundle.putString("atemp6", atemp6)
+                bundle.putString("atemp7", atemp7)
+                bundle.putString("atemp8", atemp8)
+                bundle.putString("atemp9", atemp9)
+                bundle.putString("atemp10", atemp10)
+                bundle.putString("atemp11", atemp11)
+                bundle.putString("atemp12", atemp12)
+
 
                 val monitorFragment: MonitorFragment = MonitorFragment()
 
@@ -103,6 +131,33 @@ class MainActivity : AppCompatActivity() {
 
             }
         })
+
+        /*TH_avg_Ref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                //값이 변경된게 있으면 database의 값이 갱신되면 자동 호출된다.
+
+                val bundle: Bundle = Bundle()
+                var atemp = snapshot.child("avg_hour/1/avg_t").value
+                var avtemp = atemp.toString()
+                bundle.putString("atemp", avtemp)
+
+                val monitorFragment: MonitorFragment = MonitorFragment()
+
+                monitorFragment.arguments = bundle
+
+                val manager : FragmentManager = supportFragmentManager
+
+                val transaction: FragmentTransaction = manager.beginTransaction()
+                if(fragment_num==1) {
+                    transaction.replace(R.id.main_container, monitorFragment).commit()
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                println("Failed to read value.")
+
+            }
+        })*/
 
         /*btnon.setOnClickListener{
             msgRef.setValue(1)

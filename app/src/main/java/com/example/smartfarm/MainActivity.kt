@@ -113,6 +113,32 @@ class MainActivity : AppCompatActivity() {
                 bundle.putString("atemp11", atemp11)
                 bundle.putString("atemp12", atemp12)
 
+                var ahumi1 = snapshot.child("avg_hour/1/avg_h").value.toString()
+                var ahumi2 = snapshot.child("avg_hour/2/avg_h").value.toString()
+                var ahumi3 = snapshot.child("avg_hour/3/avg_h").value.toString()
+                var ahumi4 = snapshot.child("avg_hour/4/avg_h").value.toString()
+                var ahumi5 = snapshot.child("avg_hour/5/avg_h").value.toString()
+                var ahumi6 = snapshot.child("avg_hour/6/avg_h").value.toString()
+                var ahumi7 = snapshot.child("avg_hour/7/avg_h").value.toString()
+                var ahumi8 = snapshot.child("avg_hour/8/avg_h").value.toString()
+                var ahumi9 = snapshot.child("avg_hour/9/avg_h").value.toString()
+                var ahumi10 = snapshot.child("avg_hour/10/avg_h").value.toString()
+                var ahumi11 = snapshot.child("avg_hour/11/avg_h").value.toString()
+                var ahumi12 = snapshot.child("avg_hour/12/avg_h").value.toString()
+
+                bundle.putString("ahumi1", ahumi1)
+                bundle.putString("ahumi2", ahumi2)
+                bundle.putString("ahumi3", ahumi3)
+                bundle.putString("ahumi4", ahumi4)
+                bundle.putString("ahumi5", ahumi5)
+                bundle.putString("ahumi6", ahumi6)
+                bundle.putString("ahumi7", ahumi7)
+                bundle.putString("ahumi8", ahumi8)
+                bundle.putString("ahumi9", ahumi9)
+                bundle.putString("ahumi10", ahumi10)
+                bundle.putString("ahumi11", ahumi11)
+                bundle.putString("ahumi12", ahumi12)
+
 
                 val monitorFragment: MonitorFragment = MonitorFragment()
 

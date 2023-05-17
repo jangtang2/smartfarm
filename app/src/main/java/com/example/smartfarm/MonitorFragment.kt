@@ -131,78 +131,111 @@ class MonitorFragment : Fragment(R.layout.fragment_monitor) {
         val set1: LineDataSet
         set1 = LineDataSet(tmp_Vals, "DataSet 1")
 
-        set1.color = Color.BLUE
-        set1.setCircleColor(Color.BLUE)
+        set1.color = Color.RED
+        set1.setCircleColor(Color.RED)
         set1.lineWidth = 1f
         set1.circleRadius = 3f
         set1.setDrawCircleHole(false)
         set1.valueTextSize = 0f
         set1.setDrawFilled(false)
 
-        val dataSets = ArrayList<ILineDataSet>()
-        dataSets.add(set1)
-        val data = LineData(dataSets)
+        val dataSets_1 = ArrayList<ILineDataSet>()
+        dataSets_1.add(set1)
+        val data1 = LineData(dataSets_1)
 
-        var lineChart = view.findViewById<LineChart>(R.id.TH_chart)
+        var lineChart1 = view.findViewById<LineChart>(R.id.T_chart)
         // set data
-        lineChart.setData(data)
-        lineChart.description.isEnabled = false
-        lineChart.legend.isEnabled = false
-        lineChart.setPinchZoom(true)
-        lineChart.xAxis.enableGridDashedLine(5f, 5f, 0f)
-        lineChart.axisRight.enableGridDashedLine(5f, 5f, 0f)
-        lineChart.axisLeft.enableGridDashedLine(5f, 5f, 0f)
-        lineChart.xAxis.labelCount = 12
-        lineChart.xAxis.position = XAxis.XAxisPosition.BOTTOM
+        lineChart1.setData(data1)
+        lineChart1.description.isEnabled = false
+        lineChart1.legend.isEnabled = false
+        lineChart1.setPinchZoom(true)
+        lineChart1.xAxis.enableGridDashedLine(5f, 5f, 0f)
+        lineChart1.axisRight.enableGridDashedLine(5f, 5f, 0f)
+        lineChart1.axisLeft.enableGridDashedLine(5f, 5f, 0f)
+        lineChart1.xAxis.labelCount = 12
+        lineChart1.xAxis.position = XAxis.XAxisPosition.BOTTOM
 
-        //setupLineChartData(view)
+
+        //humi line chart
+        val ah1 : Float? = this.arguments?.getString("ahumi1")?.toFloat()
+        val ah2 : Float? = this.arguments?.getString("ahumi2")?.toFloat()
+        val ah3 : Float? = this.arguments?.getString("ahumi3")?.toFloat()
+        val ah4 : Float? = this.arguments?.getString("ahumi4")?.toFloat()
+        val ah5 : Float? = this.arguments?.getString("ahumi5")?.toFloat()
+        val ah6 : Float? = this.arguments?.getString("ahumi6")?.toFloat()
+        val ah7 : Float? = this.arguments?.getString("ahumi7")?.toFloat()
+        val ah8 : Float? = this.arguments?.getString("ahumi8")?.toFloat()
+        val ah9 : Float? = this.arguments?.getString("ahumi9")?.toFloat()
+        val ah10 : Float? = this.arguments?.getString("ahumi10")?.toFloat()
+        val ah11 : Float? = this.arguments?.getString("ahumi11")?.toFloat()
+        val ah12 : Float? = this.arguments?.getString("ahumi12")?.toFloat()
+
+        //val atp1: Float? = at1?.toFloat()
+
+        val hum_Vals = ArrayList<Entry>()
+        if (ah1 != null) {
+            hum_Vals.add(Entry(-24f, ah1))
+        }
+        if (ah2 != null) {
+            hum_Vals.add(Entry(-22f, ah2))
+        }
+        if (ah3 != null) {
+            hum_Vals.add(Entry(-20f, ah3))
+        }
+        if (ah4 != null) {
+            hum_Vals.add(Entry(-18f, ah4))
+        }
+        if (ah5 != null) {
+            hum_Vals.add(Entry(-16f, ah5))
+        }
+        if (ah6 != null) {
+            hum_Vals.add(Entry(-14f, ah6))
+        }
+        if (ah7 != null) {
+            hum_Vals.add(Entry(-12f, ah7))
+        }
+        if (ah8 != null) {
+            hum_Vals.add(Entry(-10f, ah8))
+        }
+        if (ah9 != null) {
+            hum_Vals.add(Entry(-8f, ah9))
+        }
+        if (ah10 != null) {
+            hum_Vals.add(Entry(-6f, ah10))
+        }
+        if (ah11 != null) {
+            hum_Vals.add(Entry(-4f, ah11))
+        }
+        if (ah12 != null) {
+            hum_Vals.add(Entry(-2f, ah12))
+        }
+
+        val set2: LineDataSet
+        set2 = LineDataSet(hum_Vals, "DataSet 2")
+
+        set2.color = Color.BLUE
+        set2.setCircleColor(Color.BLUE)
+        set2.lineWidth = 1f
+        set2.circleRadius = 3f
+        set2.setDrawCircleHole(false)
+        set2.valueTextSize = 0f
+        set2.setDrawFilled(false)
+
+        val dataSets2 = ArrayList<ILineDataSet>()
+        dataSets2.add(set2)
+        val data2 = LineData(dataSets2)
+
+        var lineChart2 = view.findViewById<LineChart>(R.id.H_chart)
+        // set data
+        lineChart2.setData(data2)
+        lineChart2.description.isEnabled = false
+        lineChart2.legend.isEnabled = false
+        lineChart2.setPinchZoom(true)
+
+        lineChart2.xAxis.labelCount = 12
+        lineChart2.xAxis.position = XAxis.XAxisPosition.BOTTOM
 
         return view
-    }
-
-    private fun setupLineChartData(view: View){
-
-        val yVals = ArrayList<Entry>()
-        yVals.add(Entry(1f, 1f, "1"))
-        yVals.add(Entry(2f, 2f, "2"))
-        yVals.add(Entry(3f, 4f, "3"))
-        yVals.add(Entry( 4f, 7f, "4"))
-        yVals.add(Entry(5f, 8f, "5"))
-        yVals.add(Entry(6f, 10f, "6"))
-        yVals.add(Entry(7f, 22f, "7"))
-        yVals.add(Entry(8f, 12.5f, "8"))
-        yVals.add(Entry(9f, 22f, "9"))
-        yVals.add(Entry(10f, 32f, "10"))
-        yVals.add(Entry(11f, 54f, "11"))
-        yVals.add(Entry(12f, 28f, "12"))
-
-        val set1: LineDataSet
-        set1 = LineDataSet(yVals, "DataSet 1")
-
-        set1.color = Color.BLUE
-        set1.setCircleColor(Color.BLUE)
-        set1.lineWidth = 1f
-        set1.circleRadius = 3f
-        set1.setDrawCircleHole(false)
-        set1.valueTextSize = 0f
-        set1.setDrawFilled(false)
-
-        val dataSets = ArrayList<ILineDataSet>()
-        dataSets.add(set1)
-        val data = LineData(dataSets)
-
-        var lineChart = view.findViewById<LineChart>(R.id.TH_chart)
-        // set data
-        lineChart.setData(data)
-        lineChart.description.isEnabled = false
-        lineChart.legend.isEnabled = false
-        lineChart.setPinchZoom(true)
-        lineChart.xAxis.enableGridDashedLine(5f, 5f, 0f)
-        lineChart.axisRight.enableGridDashedLine(5f, 5f, 0f)
-        lineChart.axisLeft.enableGridDashedLine(5f, 5f, 0f)
-        //lineChart.setDrawGridBackground()
-        lineChart.xAxis.labelCount = 11
-        lineChart.xAxis.position = XAxis.XAxisPosition.BOTTOM
     }
 
 }

@@ -29,9 +29,10 @@
                 android:id="@+id/logo_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mini Farm"
+                android:text="Monitor"
                 android:textSize="80px"
                 android:textStyle="bold"
+                android:layout_marginTop="100px"
                 />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -90,16 +91,44 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="800px"
+            android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/second_h"
-            tools:ignore="MissingConstraints">
+            tools:ignore="MissingConstraints"
+            android:paddingHorizontal="100px">
+
+            <TextView
+                android:id="@+id/temp_g"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Temp"
+                android:textStyle="bold"
+                android:layout_marginHorizontal="100px"
+                android:layout_marginTop="110px"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/T_chart"/>
 
             <com.github.mikephil.charting.charts.LineChart
-                android:id="@+id/TH_chart"
+                android:id="@+id/T_chart"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="80px"
-                android:paddingTop="50px"/>
+                android:layout_height="400px"
+                app:layout_constraintTop_toBottomOf="@+id/temp_g"/>
+
+            <TextView
+                android:id="@+id/humi_g"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Humi"
+                android:textStyle="bold"
+                android:layout_marginHorizontal="100px"
+                android:layout_marginTop="50px"
+                app:layout_constraintTop_toBottomOf="@id/T_chart"
+                app:layout_constraintBottom_toTopOf="@id/H_chart"/>
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/H_chart"
+                android:layout_width="match_parent"
+                android:layout_height="400px"
+                app:layout_constraintTop_toBottomOf="@+id/humi_g"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

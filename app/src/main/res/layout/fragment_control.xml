@@ -1,14 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ControlFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="#FFFFFF"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/control_p1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints"
+            app:flow_verticalAlign="center"
+            android:paddingVertical="50px"
+            android:gravity="center"
+            android:layout_marginHorizontal="100px"
+            >
+            <TextView
+                android:id="@+id/logo_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Control"
+                android:textSize="80px"
+                android:textStyle="bold"
+                android:layout_marginTop="100px"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/control_p2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="80px"
+            app:layout_constraintTop_toBottomOf="@+id/control_p1"
+            android:background="@drawable/round_border_infodisplay"
+            tools:ignore="MissingConstraints"
+            android:elevation="50px"
+            android:paddingVertical="50px"
+            android:paddingHorizontal="120px"
+            >
+            <ImageView
+                android:layout_marginLeft="100px"
+                android:id="@+id/led_icon"
+                android:layout_width="150px"
+                android:layout_height="150px"
+                android:src="@drawable/baseline_lightbulb_circle_24"/>
+            <TextView
+                android:layout_width="150px"
+                android:layout_height="wrap_content"
+                android:text="LED"
+                android:textAlignment="center"
+                app:layout_constraintTop_toBottomOf="@+id/led_icon"/>
+            <View
+                android:id="@+id/bar"
+                android:layout_width="2px"
+                android:layout_height="200px"
+                android:background="#BEC0C2"
+                app:layout_constraintStart_toEndOf="@id/led_icon"
+                android:layout_marginHorizontal="100px"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LED ON"
+                android:textColor="#BEC0C2"
+                android:textSize="60px"
+                android:layout_marginLeft="70px"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="@+id/control_p2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/bar" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
